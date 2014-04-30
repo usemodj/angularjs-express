@@ -38,3 +38,18 @@ FIX:
 change the line to
 
 config = c.process(filepath, grunt.config);
+
+-----------------------------
+## Grunt build
+
+$ grunt 
+
+$ grunt build
+
+## Run Express.js server
+
+$ NODE_ENV=production  node app.js
+
+## Browser connect 
+
+http://localhost:3000
