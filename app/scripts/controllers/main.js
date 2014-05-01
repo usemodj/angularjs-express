@@ -2,14 +2,14 @@
 
 var app = angular.module('angularjsExpressApp');
 
-app.controller('MainCtrl', function ($scope, Article) {
+app.controller('MainCtrl', ['$scope', 'Article', function ($scope, Article) {
 	$scope.awesomeThings = [
 	  'HTML5 Boilerplate',
 	  'AngularJS',
 	  'Karma'
 	];
 	
-	$scope.refresh = function(item) {
+	$scope.list = function(item) {
 		Article.query( null,
 			function(articles, resHdr) { //success
 				console.log(">>Article.query: ");
@@ -24,8 +24,8 @@ app.controller('MainCtrl', function ($scope, Article) {
 		);
 	};
 
-   	$scope.refresh();
-  });
+   	$scope.list();
+  }]);
 
 app.factory('Article', ['$resource', function($resource) {
 	return $resource('/articles', null,

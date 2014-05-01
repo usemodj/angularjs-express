@@ -17,7 +17,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes');
+//var routes = require('./routes');
 
 var router = express.Router();
 var app = express();
@@ -44,8 +44,8 @@ app.set('port', process.env.APP_PORT || 3000);
   //app.set('views', __dirname + '/views');
   //app.set('view engine', 'jade');
   //app.engine('html', require('jade').renderFile);
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+//app.set('view engine', 'ejs');
+//app.engine('html', require('ejs').renderFile);
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -62,20 +62,21 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
 //if (app.get('env') === 'development') {  
   // development only
-  app.set('views', __dirname + '/app');
+  //app.set('views', __dirname + '/app');
   app.use(express.static(__dirname + '/app'));
   app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 }
 else {
   // production
-  app.set('views', __dirname + '/dist');
+  //app.set('views', __dirname + '/dist');
   app.use(express.static(__dirname + '/dist'));
   app.use(errorHandler());
 };
 
 // Routes 
-app.use('/', routes);
-//app.use('/articles', routes);
+// app.use('/', function(req, res, next){
+//   res.sendfile('./app/index.html');
+// });
 
 // app.get('/home', routes.index);
 app.use('/home', function(req, res, next){
@@ -92,7 +93,6 @@ app.use('/home', function(req, res, next){
 app.get('/articles', function(req, res){
   connection.query('SELECT * FROM article', function(err, rows){
     console.log( rows);
-    //res.render('index.html', {articles : rows, title: 'MySQL Rows'});
     res.json(rows);
   });
 });

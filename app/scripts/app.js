@@ -1,7 +1,6 @@
 'use strict';
 
-angular
-  .module('angularjsExpressApp', [
+angular.module('angularjsExpressApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
