@@ -9,7 +9,9 @@
     "express-session": "*",
     "errorhandler": "*",
     "ejs": "*",
-    "pngquant-bin": "~0.2.0"
+    "mysql": "~2.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

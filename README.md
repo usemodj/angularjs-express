@@ -43,6 +43,7 @@ config = c.process(filepath, grunt.config);
 ## Install module
 
 $ npm install
+
 $ bower install
 
 ## Grunt build

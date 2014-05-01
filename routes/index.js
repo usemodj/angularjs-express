@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index.html', { title: 'AngularJS Express App' })
+  res.render('index.html', { articles: articles, title: 'AngularJS Express App' })
 };
