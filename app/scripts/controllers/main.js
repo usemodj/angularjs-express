@@ -9,11 +9,11 @@ app.controller('MainCtrl', ['$scope', 'Article', function ($scope, Article) {
 	  'Karma'
 	];
 	
-	$scope.list = function(item) {
+	$scope.list = function() {
 		Article.query( null,
-			function(articles, resHdr) { //success
-				console.log(">>Article.query: ");
-				console.log(articles);
+			function(articles) { //success
+				//console.log('>>Article.query: ');
+				//console.log(articles);
 				$scope.articles = articles;
 			},
 			function(httpRes) { //error
@@ -24,9 +24,10 @@ app.controller('MainCtrl', ['$scope', 'Article', function ($scope, Article) {
 		);
 	};
 
-   	$scope.list();
-  }]);
+	$scope.list();
+}]);
 
+// https://docs.angularjs.org/api/ngResource/service/$resource
 app.factory('Article', ['$resource', function($resource) {
 	return $resource('/articles', null,
 	{
